@@ -1,6 +1,7 @@
 resource "kubernetes_service" "nexus" {
   metadata {
-    name = "nexus-service"
+    name      = "nexus-service"
+    namespace = "tools"
     labels = {
       app = "nexus"
     }

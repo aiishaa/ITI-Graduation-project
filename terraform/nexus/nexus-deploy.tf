@@ -1,6 +1,7 @@
 resource "kubernetes_deployment" "nexus" {
   metadata {
-    name = "nexus-deploy"
+    name      = "nexus-deploy"
+    namespace = "tools"
     labels = {
       deploy = "nexus"
     }
