@@ -8,7 +8,10 @@ terraform {
 }
 
 module "namespaces" {
-  source = "./namespaces"
-
+  source     = "./namespaces"
   namespaces = ["tools", "dev"]
+}
+
+module "nexus" {
+  source = "./nexus"
 }
