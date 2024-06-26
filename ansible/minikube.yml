@@ -50,14 +50,8 @@
 
 - hosts: remote
   remote_user: ubuntu
-<<<<<<< HEAD
-  tasks:
-
-=======
   become: no  
   tasks:
-  
->>>>>>> f3904d3881d1b5cd3a577f8127624730c28f9875
     - name: Download Minikube
       get_url:
         url: https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
