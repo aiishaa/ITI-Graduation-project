@@ -21,3 +21,4 @@ resource "kubernetes_service" "nexus" {
   }
 }
 
+

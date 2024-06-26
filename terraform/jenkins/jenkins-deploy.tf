@@ -21,7 +21,7 @@ resource "kubernetes_deployment" "jenkins" {
       }
       spec {
         container {
-          image = "jenkins/jenkins:lts"
+          image = "jenkins/jenkins:latest"
           name  = "jenkins"
           port {
             container_port = 8080

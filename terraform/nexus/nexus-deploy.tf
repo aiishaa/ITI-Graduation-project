@@ -31,3 +31,4 @@ resource "kubernetes_deployment" "nexus" {
     }
   }
 }
+
