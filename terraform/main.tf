@@ -18,8 +18,5 @@ module "nexus" {
 
 module "jenkins" {
   source = "./jenkins"
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> f3904d3881d1b5cd3a577f8127624730c28f9875
+
