@@ -24,6 +24,17 @@ spec:
             secretKeyRef:
               name: mysql-secret
               key: password
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: username
+        - name: DB_NAME
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: database-name
+        
         ports:
         - containerPort: 3000
 
