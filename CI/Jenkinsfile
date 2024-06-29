@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_REGISTRY = "http://10.105.150.246:8083"   // Replace with your Nexus registry URL
-        IMAGE_NAME = "node-app"                  // Replace with your Docker image name
+        DOCKER_REGISTRY = "10.98.225.41:5000"  
+        IMAGE_NAME = "node-app"                
         IMAGE_TAG = "latest"                            
         NEXUS_CREDENTIALS = credentials('nexus') 
     }
@@ -11,16 +11,16 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/mahmoud254/jenkins_nodejs_example.git'
+                git branch: 'k8s_task', url: 'https://github.com/mahmoud254/jenkins_nodejs_example.git'
             }
         }
 
         stage('Build') {
             steps {
                 script {
-                    // docker.build("${IMAGE_NAME}:${IMAGE_TAG}", "-f dockerfile .")
+                  
                      sh  """
-                        docker build -t 10.105.150.246:8083/repository/${IMAGE_NAME}:${IMAGE_TAG} -f dockerfile .
+                        docker build -t ${IMAGE_NAME}:${IMAGE_TAG} -f dockerfile .
                        
                         """
                 }
@@ -33,7 +33,8 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'nexus', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
                         sh """
                             echo ${NEXUS_PASSWORD} | docker login -u ${NEXUS_USERNAME} --password-stdin ${DOCKER_REGISTRY}
-                            docker push 10.105.150.246:8083/repository/${IMAGE_NAME}:${IMAGE_TAG}
+                            docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${DOCKER_REGISTRY}/repository/docker-repo/${IMAGE_NAME}:${IMAGE_TAG}
+                            docker push ${DOCKER_REGISTRY}/repository/docker-repo/${IMAGE_NAME}:${IMAGE_TAG}
                         """
                     }
                 }
