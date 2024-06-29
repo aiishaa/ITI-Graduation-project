@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    
+    stages {
+         stage('Install Kubectl') {
+            steps {
+                sh 'curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"'
+                sh 'chmod +x kubectl'
+                sh 'mv kubectl /usr/local/bin'
+                sh 'kubectl version --client'
+            }
+         }
+             
+          stage('Deploy Image on minikube') {
+            steps {
+                git url:'https://github.com/aiishaa/ITI-grad-project.git', branch:'main' 
+                
+                sh """
+                cd manifests
+                kubectl apply -f mysql --validate=false
+                kubectl apply -f nodejs --validate=false
+                """
+            }
+        }
+    }
+}
