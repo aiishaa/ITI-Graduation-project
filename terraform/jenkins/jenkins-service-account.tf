@@ -1,3 +1,27 @@
+resource "kubernetes_service" "jenkins" {
+  metadata {
+    name      = "jenkins-service"
+    namespace = "tools"
+    labels = {
+      app = "jenkins"
+    }
+  }
+
+  spec {
+    selector = {
+      app = "jenkins"
+    }
+
+    port {
+      port        = 8080
+      target_port = 8080
+      node_port   = 32003
+    }
+
+    type = "NodePort"
+  }
+}
+ubuntu@ip-172-31-234-205:~/ITI-grad-project/terraform/jenkins$ cat jenkins-service-account.tf 
 #resource "kubernetes_secret" "jenkins" {
 #  metadata {
 #   name      = "jenkins"
