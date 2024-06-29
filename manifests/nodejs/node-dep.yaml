@@ -18,7 +18,7 @@ spec:
         image: http://10.105.150.246:8083/repository/node-app:latest
         env:
         - name: DB_HOST
-          value: mysql
+          value: mysql-h
         - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
