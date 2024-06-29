@@ -26,9 +26,11 @@ resource "kubernetes_deployment" "nexus" {
           port {
             container_port = 8081
           }
+          port {
+            container_port = 8083
+          }
         }
       }
     }
   }
 }
-

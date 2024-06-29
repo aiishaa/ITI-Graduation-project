@@ -54,8 +54,9 @@ resource "kubernetes_deployment" "jenkins" {
         }
       }
       spec {
+        service_account_name = "jenkins" #kubernetes_service_account.jenkins.metadata[0].name
         container {
-          image = "aishafathy/jenkinswithdocker:v2"
+          image = "aishafathy/jenkinswithdocker:v100"
           name  = "jenkins"
           port {
             container_port = 8080

@@ -15,6 +15,7 @@ resource "kubernetes_service" "jenkins" {
     port {
       port        = 8080
       target_port = 8080
+      node_port   = 32003
     }
 
     type = "NodePort"
