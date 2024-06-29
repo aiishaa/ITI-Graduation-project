@@ -77,4 +77,3 @@ resource "kubernetes_deployment" "jenkins" {
     }
   }
 }
-
