@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: nodejs
-        image: http://10.105.150.246:8083/repository/node-app:latest
+        image: 10.105.150.246:8083/repository/node-app:latest
         env:
         - name: DB_HOST
           value: mysql-h
