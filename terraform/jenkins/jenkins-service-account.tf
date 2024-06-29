@@ -1,14 +1,14 @@
-#resource "kubernetes_secret" "jenkins" {
-#  metadata {
-#   name      = "jenkins"
-#    namespace = "tools"
-#    annotations = {
-#      "kubernetes.io/service-account.name"      = "jenkins"
-#      "kubernetes.io/service-account.namespace" = "tools"
-#    }
-#}
-#  type = "kubernetes.io/service-account-token"
-#}
+resource "kubernetes_secret" "jenkins" {
+  metadata {
+   name      = "jenkins"
+    namespace = "tools"
+    annotations = {
+      "kubernetes.io/service-account.name"      = "jenkins"
+      "kubernetes.io/service-account.namespace" = "tools"
+    }
+}
+  type = "kubernetes.io/service-account-token"
+}
 
 resource "kubernetes_service_account" "jenkins" {
   metadata {
