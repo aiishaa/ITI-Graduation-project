@@ -73,12 +73,10 @@ o Now, as a result of the build pipeline, you can see the image pushed to the Do
 ![image](https://github.com/aiishaa/ITI-Graduation-project/assets/57088227/d6a4d693-8ac5-4224-b231-906936e06165)
 
 <br> 
-
-![image](https://github.com/aiishaa/ITI-Graduation-project/assets/57088227/1798436f-eae7-4951-8b99-65e30d57f660)
-
+![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/b38a70e9-9969-464d-b147-dbcc515efd76)
 
 <br>
+![image](https://github.com/aiishaa/ITI-Graduation-project/assets/57088227/1798436f-eae7-4951-8b99-65e30d57f660)
 
-![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/4f90e158-d264-451f-b012-113e9a3c47ec)
 
 
