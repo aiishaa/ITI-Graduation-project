@@ -6,8 +6,8 @@ You can run the ansible playbook on your local machine or on a remote ec2 instan
 
 ## 3- tools namespace will have pod for Jenkins and nexus(installed using Terraform
 a. Jenkins:<br>
-- Created Persistent Volume and Persistent Volume Claim that is mounted inside the Jenkins pod, allowing it to store data outside the pod, ensuring persistence across updates or reboots.
 - Created a jenkins deployment and a service of the type nodeport 
+- Created a Persistent Volume and a Persistent Volume Claim that is mounted inside the Jenkins pod, allowing it to store data outside the pod, ensuring persistence across updates or reboots.
 - Made use of the Docker daemon on the host and mounted /var/run/docker.sock so that the jenkins server can interact with the Docker daemon using the Docker CLI
 - Created a service account for the Jenkins pod and assigned it a role, granting it permissions to create StatefulSets, Deployments, and Services on the Minikube cluster.
 
