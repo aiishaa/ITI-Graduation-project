@@ -66,11 +66,26 @@ resource "kubernetes_deployment" "jenkins" {
             name       = "docker-daemon"
             mount_path = "/var/run/docker.sock"
           }
+
+          volume_mount {
+            name       = "jenkins-storage"
+            mount_path = "/var/jenkins_home"
+          }
         }
+
         volume {
           name = "docker-daemon"
+
           host_path {
             path = "/var/run/docker.sock"
+          }
+        }
+
+        volume {
+          name = "jenkins-storage"
+
+          persistent_volume_claim {
+            claim_name = "jenkins-pvc"
           }
         }
       }
