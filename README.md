@@ -26,11 +26,15 @@ b- Nexus:<br>
   ```bash
   kubectl exec -n tools <nexus-pod-name> -- cat /nexus-data/admin.password
   ```
-![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/22d07e08-aceb-42e6-9981-48f11a43c177)
+<br>
+![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/10fe0c4e-5f9a-4c5a-b58f-113b713062a4)
 <br>
 
 - Created a new Docker-hosted repository and defined the port through which this repository is accessible
 
+<br>
+![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/a8773ed6-e59f-449c-ae5b-bbc549cd0324)
+<br>
 
 ## 4- dev namespace will run two pods: one for nodejs application and another for MySQL DB 
 - In the manifests folder, we created the resources needed for MySQL to run as a statefulset, the headless service, and the secret resources.
