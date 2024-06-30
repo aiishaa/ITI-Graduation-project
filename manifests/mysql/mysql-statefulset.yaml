@@ -22,15 +22,20 @@ spec:
           valueFrom:
             secretKeyRef:
               name: mysql-secret
-              key: password
+              key: root-password
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: user-password
         - name: HOST  
           value: mysql
-        - name: USERNAME
+        - name: MYSQL_USER
           valueFrom:
             secretKeyRef:
               name: mysql-secret
               key: username
-        - name: DATABASE
+        - name: MYSQL_DATABASE
           valueFrom:
             secretKeyRef:
               name: mysql-secret
