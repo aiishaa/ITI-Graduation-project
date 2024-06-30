@@ -98,6 +98,7 @@
   hosts: remote
   become: no
   tasks:
+  
     - name: Start Minikube
       command: minikube start --driver=docker
       environment:
