@@ -18,7 +18,7 @@ spec:
         image: 10.99.162.209:8083/repository/docker-repo/node-app:latest
         env:
         - name: DB_HOST
-          value: mysql-h
+          value: mysql
         - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
