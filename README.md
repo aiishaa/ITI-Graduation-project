@@ -46,16 +46,21 @@ o Checkout code from https://github.com/mahmoud254/jenkins_nodejs_example.git<br
     a- Build nodejs app usng dockerfile<br>
     b- Create a Docker image<br>
     c- Upload Docker image to nexus<br>
-    
-![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/891ad2d6-6822-4c9e-a9b6-f40ebc1a0801)
+
+![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/f5064817-18cc-4c54-8990-fd687483dd12)
+
+<br>
+
+![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/c24d6588-79e0-469f-a0e7-990e2fc73a70)
 
 <br>
 
 o Now, as a result of the build pipeline, you can see the image pushed to the Docker-hosted repository we created 
 <br>
 
-![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/49bf710a-0f99-42d5-bb49-ad8c5f9c0daf)
+![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/fc3e0b1b-f741-4bdd-b0f3-b4f1ef91c98f)
 
-<br>
 
 ## 6- Create another Jenkins pipeline job that run the Docker container on the requested environment from nexus on minikube.
+
+
