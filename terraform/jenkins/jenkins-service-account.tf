@@ -26,14 +26,14 @@ resource "kubernetes_role" "jenkins_role" {
   }
 
   rule {
-    api_groups = [""]
-    resources  = ["pods", "services", "secrets"]
+    api_groups = ["apps"]
+    resources  = ["deployments", "statefulsets"]
     verbs      = ["get", "list", "watch", "create", "update", "patch", "delete"]
   }
 
   rule {
-    api_groups = ["apps"]
-    resources  = ["deployments", "statefulsets"]
+    api_groups = [""]
+    resources  = ["pods", "services", "secrets"]
     verbs      = ["get", "list", "watch", "create", "update", "patch", "delete"]
   }
 }
@@ -46,40 +46,13 @@ resource "kubernetes_role_binding" "jenkins_role_binding" {
 
   subject {
     kind      = "ServiceAccount"
-    name      = kubernetes_service_account.jenkins.metadata[0].name
-    namespace = kubernetes_service_account.jenkins.metadata[0].namespace
+    name      = "jenkins" # kubernetes_service_account.jenkins.metadata[0].name
+    namespace = "tools" #kubernetes_service_account.jenkins.metadata[0].namespace
   }
 
   role_ref {
     kind      = "Role"
     name      = kubernetes_role.jenkins_role.metadata[0].name
     api_group = "rbac.authorization.k8s.io"
-  }
-}
-
-resource "kubernetes_cluster_role" "jenkins" {
-  metadata {
-    name = "jenkins"
-  }
-  rule {
-    api_groups = ["*"]
-    resources = ["*"]
-    verbs = ["*"]
-  }
-}
-
-resource "kubernetes_cluster_role_binding" "jenkins" {
-  metadata {
-    name = "jenkins"
-  }
-  role_ref {
-    api_group = "rbac.authorization.k8s.io"
-    kind = "ClusterRole"
-    name = "jenkins"
-  }
-  subject {
-    kind      = "ServiceAccount"
-    name      = "jenkins"
-    namespace = "tools"
   }
 }
