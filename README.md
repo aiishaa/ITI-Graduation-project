@@ -8,7 +8,7 @@ You can run this playbook on your local machine or a remote ec2 instance(you'll 
 a. Jenkins:<br>
 - Created Persistent Volume and Persistent Volume Claim that is mounted inside the Jenkins pod, allowing it to store data outside the pod, ensuring persistence across updates or reboots.
 - Created a jenkins deployment and a service of the type nodeport 
-- Made use of the Docker daemon on the host and mounted /var/run/docker.sock to interact with the Docker daemon using the Docker CLI
+- Made use of the Docker daemon on the host and mounted /var/run/docker.sock so that the jenkins server can interact with the Docker daemon using the Docker CLI
 - Created a service account for the Jenkins pod and assigned it a role, granting it permissions to create StatefulSets, Deployments, and Services on the Minikube cluster.
 
 ![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/029b904d-c788-4ca1-b411-6002c924656f)
@@ -56,11 +56,6 @@ o Now, as a result of the build pipeline, you can see the image pushed to the Do
 
 ![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/49bf710a-0f99-42d5-bb49-ad8c5f9c0daf)
 
+<br>
 
-
-
-
-
-
-
-
+## 6- Create another Jenkins pipeline job that run the Docker container on the requested environment from nexus on minikube.
