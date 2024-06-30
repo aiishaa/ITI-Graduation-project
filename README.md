@@ -9,10 +9,11 @@ a. Jenkins:<br>
 - Created Persistent Volume and Persistent Volume Claim that is mounted inside the Jenkins pod, allowing it to store data outside the pod, ensuring persistence across updates or reboots.
 - Created a jenkins deployment and a service of the type nodeport 
 - Made use of the Docker daemon on the host and mounted /var/run/docker.sock to interact with the Docker daemon using the Docker CLI
-- Created a service account for the Jenkins pod and assigned it a role, granting it permissions to create StatefulSets, Deployments, and Services on the Minikube cluster.<br>
-
+- Created a service account for the Jenkins pod and assigned it a role, granting it permissions to create StatefulSets, Deployments, and Services on the Minikube cluster.
+<br>
 ![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/029b904d-c788-4ca1-b411-6002c924656f)
 <br>
+
 - Now that the Jenkins pod is up and running, to log in to the Jenkins server, you need to sign in first using the username 'admin' and to retrieve the admin password:
   ```bash
   kubectl exec -n tools <jenkins-pod-name> -- cat /var/jenkins_home/secrets/initialAdminPassword
