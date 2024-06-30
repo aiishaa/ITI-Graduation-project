@@ -24,7 +24,7 @@ spec:
             secretKeyRef:
               name: mysql-secret
               key: user-password
-        - name: USERNAME
+        - name: USER
           valueFrom:
             secretKeyRef:
               name: mysql-secret
@@ -34,9 +34,7 @@ spec:
             secretKeyRef:
               name: mysql-secret
               key: database-name
-        
         ports:
         - containerPort: 3000
       imagePullSecrets:
       - name: nexus-cred
-
