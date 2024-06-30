@@ -19,9 +19,12 @@ a. Jenkins:<br>
   ```
 
 b- Nexus:<br>
-- Created a nexus deployment and a service of nodeport type <br>
+- Created a nexus deployment and a service of nodeport type
+
+<br>
 ![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/11f81876-6ca5-4c50-9028-31e66cc8a0b2)
 <br>
+
 - Now that the Nexus pod is up and running, to log in to the Nexus server, you need to sign in first using the username 'admin' and to retrieve the admin password:
   ```bash
   kubectl exec -n tools <nexus-pod-name> -- cat /nexus-data/admin.password
@@ -41,10 +44,10 @@ b- Nexus:<br>
 - Created the manifests needed for the nodejs application, deployment (that uses the image created from running the build pipeline) and a service of nodeport type.
 
 ## 5- Create a Jenkins pipeline job to do the following:
-o Checkout code from https://github.com/mahmoud254/jenkins_nodejs_example.git
-    a- Build nodejs app usng dockerfile
-    b- Create a Docker image
-    c- Upload Docker image to nexus
+o Checkout code from https://github.com/mahmoud254/jenkins_nodejs_example.git<br>
+    a- Build nodejs app usng dockerfile<br>
+    b- Create a Docker image<br>
+    c- Upload Docker image to nexus<br>
 
 
 
