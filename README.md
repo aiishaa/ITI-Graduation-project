@@ -46,6 +46,14 @@ o Checkout code from https://github.com/mahmoud254/jenkins_nodejs_example.git<br
     a- Build nodejs app usng dockerfile<br>
     b- Create a Docker image<br>
     c- Upload Docker image to nexus<br>
+    
+![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/891ad2d6-6822-4c9e-a9b6-f40ebc1a0801)
+
+<br>
+o Now, as a result of the build pipeline, you can see the image pushed to the Docker-hosted repository we created <br>
+![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/49bf710a-0f99-42d5-bb49-ad8c5f9c0daf)
+
+
 
 
 
