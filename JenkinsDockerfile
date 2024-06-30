@@ -1,0 +1,21 @@
+FROM jenkins/jenkins:latest
+USER root
+
+#install prerequisites
+RUN apt-get update && \
+    apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+
+#Add Docker's official GPG key
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+
+# Set up Docker repository for Ubuntu 18.04 (bionic)
+RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+
+ # Install Docker CLI
+RUN apt-get update && \
+     apt-get install -y docker-ce-cli
+
+# RUN usermod -aG docker jenkins
+RUN groupadd -g 988 docker && usermod -aG docker jenkins
+
+#USER jenkins
