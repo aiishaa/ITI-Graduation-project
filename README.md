@@ -62,6 +62,17 @@ o Now, as a result of the build pipeline, you can see the image pushed to the Do
 
 
 ## 6- Create another Jenkins pipeline job that run the Docker container on the requested environment from nexus on minikube.<br>
+- Created a secret object of docker-registry type to store the credentials needed for the container to authenticate with the docker hosted repo on nexus:
+'''bash
+  kubectl create secret docker-registry nexus-cred \
+  --docker-server=<docker-repo:port> \
+  --docker-username=<your-username> \
+  --docker-password=<your-password> -n dev
+'''
+
+![image](https://github.com/aiishaa/ITI-Graduation-project/assets/57088227/d6a4d693-8ac5-4224-b231-906936e06165)
+
+<br> 
 
 ![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/b38a70e9-9969-464d-b147-dbcc515efd76)
 
