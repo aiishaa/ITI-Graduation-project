@@ -16,6 +16,6 @@ RUN apt-get update && \
      apt-get install -y docker-ce-cli
 
 # RUN usermod -aG docker jenkins
-RUN groupadd -g 988 docker && usermod -aG docker jenkins
+RUN groupadd docker && usermod -aG docker jenkins
 
 #USER jenkins
