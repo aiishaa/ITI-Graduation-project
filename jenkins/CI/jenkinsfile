@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_REGISTRY = "10.98.225.41:5000"  
+        DOCKER_REGISTRY = "10.105.150.246:8083"
         IMAGE_NAME = "node-app"                
         IMAGE_TAG = "latest"                            
         NEXUS_CREDENTIALS = credentials('nexus') 
