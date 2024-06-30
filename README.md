@@ -61,6 +61,12 @@ o Now, as a result of the build pipeline, you can see the image pushed to the Do
 ![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/fc3e0b1b-f741-4bdd-b0f3-b4f1ef91c98f)
 
 
-## 6- Create another Jenkins pipeline job that run the Docker container on the requested environment from nexus on minikube.
+## 6- Create another Jenkins pipeline job that run the Docker container on the requested environment from nexus on minikube.<br>
+
+![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/b38a70e9-9969-464d-b147-dbcc515efd76)
+
+<br>
+
+![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/4f90e158-d264-451f-b012-113e9a3c47ec)
 
 
