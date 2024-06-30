@@ -17,8 +17,8 @@ pipeline {
                 
                 sh """
                 cd manifests
-                kubectl apply -f mysql --validate=false
-                kubectl apply -f nodejs --validate=false
+                kubectl apply -f mysql 
+                kubectl apply -f nodejs 
                 """
             }
         }
