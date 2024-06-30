@@ -10,7 +10,7 @@ a. Jenkins:<br>
 - Created a jenkins deployment and a service of the type nodeport 
 - Made use of the Docker daemon on the host and mounted /var/run/docker.sock to interact with the Docker daemon using the Docker CLI
 - Created a service account for the Jenkins pod and assigned it a role, granting it permissions to create StatefulSets, Deployments, and Services on the Minikube cluster.
-<br>
+
 ![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/029b904d-c788-4ca1-b411-6002c924656f)
 <br>
 
@@ -22,7 +22,6 @@ a. Jenkins:<br>
 b- Nexus:<br>
 - Created a nexus deployment and a service of nodeport type
 
-<br>
 ![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/11f81876-6ca5-4c50-9028-31e66cc8a0b2)
 <br>
 
@@ -30,13 +29,11 @@ b- Nexus:<br>
   ```bash
   kubectl exec -n tools <nexus-pod-name> -- cat /nexus-data/admin.password
   ```
-<br>
 ![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/10fe0c4e-5f9a-4c5a-b58f-113b713062a4)
 <br>
 
 - Created a new Docker-hosted repository and defined the port through which this repository is accessible
 
-<br>
 ![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/a8773ed6-e59f-449c-ae5b-bbc549cd0324)
 <br>
 
