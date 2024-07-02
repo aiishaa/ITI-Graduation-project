@@ -1,6 +1,8 @@
 apiVersion: v1
 kind: Pod
 metadata:
+  name: jenkins-agent
+  namespace: tools
   labels:
     some-label: jenkins-pipeline
 spec:
@@ -11,7 +13,7 @@ spec:
     runAsNonRoot: false
   containers:
   - name: jenkins-agent
-    image: aishafathy/jenkinsagent:latest # Enter the jenkins inbound agent image.
+    image: jenkins/inbound-agent # Enter the Jenkins inbound agent image.
     command:
     - sleep
     args:
@@ -24,3 +26,11 @@ spec:
       limits:
         cpu: 1
         memory: 1024Mi
+    volumeMounts:
+    - name: docker-daemon
+      mountPath: /var/run/docker.sock
+  volumes:
+  - name: docker-daemon
+    hostPath:
+      path: /var/run/docker.sock
+      type: Socket
