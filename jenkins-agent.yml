@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    some-label: jenkins-pipelinei
+    some-label: jenkins-pipeline
 spec:
   serviceAccountName: jenkins-agent # Enter the service account name being used
   securityContext:
