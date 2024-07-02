@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        DOCKER_REGISTRY = "10.106.148.66:8083"
+        DOCKER_REGISTRY = "10.101.100.160:8083"
         IMAGE_NAME = "node-app"                
         IMAGE_TAG = "latest"                            
         NEXUS_CREDENTIALS = credentials('nexus') 
