@@ -54,12 +54,19 @@ resource "kubernetes_deployment" "jenkins" {
         }
       }
       spec {
-        service_account_name = "jenkins" #kubernetes_service_account.jenkins.metadata[0].name
+        service_account_name = "jenkins-manager" #kubernetes_service_account.jenkins.metadata[0].name
         container {
           image = "aishafathy/jenkinswithdocker:v100"
           name  = "jenkins"
           port {
             container_port = 8080
+            protocol       = "TCP"
+            name           = "manager"
+          }
+          port {
+            container_port = 50000
+            protocol       = "TCP"
+            name           = "jnlp"
           }
 
           volume_mount {
