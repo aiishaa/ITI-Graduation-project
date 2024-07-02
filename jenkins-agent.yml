@@ -13,7 +13,7 @@ spec:
     runAsNonRoot: false
   containers:
   - name: jenkins-agent
-    image: aishafathy/jenkinsagent:v1 # Enter the Jenkins inbound agent image.
+    image: aishafathy/jenkinsagent:v2 # Enter the Jenkins inbound agent image.
     command:
     - sleep
     args:
