@@ -69,7 +69,7 @@ resource "kubernetes_role_binding" "jenkins_agent_role_binding" {
 
   subject {
     kind      = "ServiceAccount"
-    name      = "jenkins-agnet"
+    name      = "jenkins-agent"
     namespace = "tools"
   }
 }
