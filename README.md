@@ -43,7 +43,7 @@ b- Nexus:<br>
 - Created the manifests needed for the nodejs application, deployment (that uses the image created from running the build pipeline) and a service of nodeport type.
 
 ## 5- Create a Jenkins pipeline job to do the following:
-o Checkout code from https://github.com/mahmoud254/jenkins_nodejs_example.git<br>
+#### o Checkout code from https://github.com/mahmoud254/jenkins_nodejs_example.git<br>
   - Build nodejs app usng dockerfile<br>
   - Create a Docker image<br>
   - Upload Docker image to nexus<br>
