@@ -22,11 +22,11 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                  
-                     sh  """
-                        docker build -t ${IMAGE_NAME}:${IMAGE_TAG} -f dockerfile .
-                       
-                        """
+                    container('jenkins-agent') {
+                         sh  """
+                            docker build -t ${IMAGE_NAME}:${IMAGE_TAG} -f dockerfile .
+                            """
+                    }
                 }
             }
         }
@@ -34,12 +34,14 @@ pipeline {
         stage('Push to Nexus') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'nexus', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
-                        sh """
-                            docker login -u ${NEXUS_USERNAME} -p ${NEXUS_PASSWORD} ${DOCKER_REGISTRY}
-                            docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${DOCKER_REGISTRY}/repository/docker-repo/${IMAGE_NAME}:${IMAGE_TAG}
-                            docker push ${DOCKER_REGISTRY}/repository/docker-repo/${IMAGE_NAME}:${IMAGE_TAG}
-                        """
+                    container('jenkins-agent') {
+                        withCredentials([usernamePassword(credentialsId: 'nexus', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
+                            sh """
+                                docker login -u ${NEXUS_USERNAME} -p ${NEXUS_PASSWORD} ${DOCKER_REGISTRY}
+                                docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${DOCKER_REGISTRY}/repository/docker-repo/${IMAGE_NAME}:${IMAGE_TAG}
+                                docker push ${DOCKER_REGISTRY}/repository/docker-repo/${IMAGE_NAME}:${IMAGE_TAG}
+                            """
+                        }
                     }
                 }
             }
