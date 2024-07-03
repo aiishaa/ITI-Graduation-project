@@ -1,8 +1,7 @@
-
 resource "kubernetes_service" "mysql" {
   metadata {
     name      = "mysql"
-    namespace = kubernetes_namespace.dev.metadata[0].name
+    namespace = "dev"
   }
 
   spec {
