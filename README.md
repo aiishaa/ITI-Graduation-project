@@ -70,11 +70,7 @@ step 3: Define the credentials needed. For Jenkins to communicate with the Kuber
 
 <br>
 
-#### 5.2 Create and run the build pipeline
-
-![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/f5064817-18cc-4c54-8990-fd687483dd12)
-
-<br>
+#### 5.2 Create and run the build pipeline<br>
 
 ![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/c24d6588-79e0-469f-a0e7-990e2fc73a70)
 
