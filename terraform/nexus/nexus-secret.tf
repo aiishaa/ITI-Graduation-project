@@ -1,20 +1,20 @@
 resource "kubernetes_secret" "nexus-cred" {
   metadata {
     name      = "nexus-cred"
-    namespace = kubernetes_namespace.dev.metadata[0].name
+    namespace = "dev"
   }
 
   type = "kubernetes.io/dockerconfigjson"
 
   data = {
-    ".dockerconfigjson" = base64encode(jsonencode({
+    ".dockerconfigjson" = jsonencode({
       auths = {
-        "${var.docker_server}" = {
-          username = var.docker_username
-          password = var.docker_password
-          auth     = base64encode("${var.docker_username}:${var.docker_password}")
+        "${kubernetes_service.nexus.spec.0.cluster_ip}:8083" = {
+          "username" = var.docker_username
+          "password" = var.docker_password
+          "auth"     = base64encode("${var.docker_username}:${var.docker_password}")
         }
       }
-    }))
+    })
   }
 }
