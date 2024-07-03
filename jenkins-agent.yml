@@ -33,4 +33,3 @@ spec:
   - name: docker-daemon
     hostPath:
       path: /var/run/docker.sock
-      type: Socket
