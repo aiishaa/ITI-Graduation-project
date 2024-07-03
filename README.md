@@ -54,10 +54,6 @@ Step 1: Install Jenkins Kubernetes Plugin <br>
 Step 2: Create a Kubernetes Cloud Configuration<br>
 ![cloud-1](https://github.com/aiishaa/ITI-Graduation-project/assets/57088227/1532aafb-29af-46ed-b9ad-d0cef62dbca1)
 
-step 3: Define the credentials needed. For Jenkins to communicate with the Kubernetes cluster, we need a service account token with permission to deploy pods in the tools namespace<br>
-
-![jenkins-secrets](https://github.com/aiishaa/ITI-Graduation-project/assets/57088227/b083f029-bcb2-4683-8c6f-554e1779a3f9)
-
 <br>
 
 ![cloud-2](https://github.com/aiishaa/ITI-Graduation-project/assets/57088227/f2bfdaf2-d2f4-4924-b609-ece39e2a649e)
@@ -65,6 +61,12 @@ step 3: Define the credentials needed. For Jenkins to communicate with the Kuber
 <br>
 
 ![image](https://github.com/aiishaa/ITI-Graduation-project/assets/57088227/afa6a21a-3d15-468a-8015-1f663c44d76f)
+
+<br>
+
+step 3: Define the credentials needed. For Jenkins to communicate with the Kubernetes cluster, we need a service account token with permission to deploy pods in the tools namespace<br>
+
+![jenkins-secrets](https://github.com/aiishaa/ITI-Graduation-project/assets/57088227/b083f029-bcb2-4683-8c6f-554e1779a3f9)
 
 <br>
 
