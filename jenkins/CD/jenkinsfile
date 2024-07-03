@@ -28,8 +28,7 @@ pipeline {
                 container('jenkins-agent') {
                     sh """
                         cd manifests
-                        kubectl apply -f mysql 
-                        kubectl apply -f nodejs 
+                        kubectl apply -f nodejs/node-deploy.yml
                     """
                 }
             }    
