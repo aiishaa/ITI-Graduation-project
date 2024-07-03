@@ -48,7 +48,7 @@ o Checkout code from https://github.com/mahmoud254/jenkins_nodejs_example.git<br
   - Create a Docker image<br>
   - Upload Docker image to nexus<br>
 
-#### Setting the Jenkins Kubernetes Pod Agent. This pod will be dynamically created and destroyed by Jenkins.<br>
+#### 5.1 Setting the Jenkins Kubernetes Pod Agent. This pod will be dynamically created and destroyed by Jenkins.<br>
 
 Step 1: Install Jenkins Kubernetes Plugin <br>
 Step 2: Create a Kubernetes Cloud Configuration<br>
@@ -70,7 +70,7 @@ step 3: Define the credentials needed. For Jenkins to communicate with the Kuber
 
 <br>
 
-#### Create and run the build pipeline
+#### 5.2 Create and run the build pipeline
 
 ![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/f5064817-18cc-4c54-8990-fd687483dd12)
 
