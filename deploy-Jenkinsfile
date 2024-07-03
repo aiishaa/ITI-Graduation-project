@@ -1,0 +1,38 @@
+pipeline {
+    agent {
+        kubernetes {
+            yamlFile 'jenkins-agent.yml'
+        }
+    }
+    
+    stages {
+         stage('Install Kubectl') {
+            steps {
+                container('jenkins-agent') {
+                    sh 'curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"'
+                    sh 'chmod +x kubectl'
+                    sh 'mv kubectl /usr/local/bin'
+                    sh 'kubectl version --client'
+                }
+            }
+         }
+             
+        stage('Checkout') {
+           steps {
+                git url:'https://github.com/aiishaa/ITI-grad-project.git', branch:'main' 
+            }
+        }
+
+        stage('Deploy Image on minikube') {
+            steps {
+                container('jenkins-agent') {
+                    sh """
+                        cd manifests
+                        kubectl apply -f mysql 
+                        kubectl apply -f nodejs 
+                    """
+                }
+            }    
+        }
+    }
+}
