@@ -9,9 +9,10 @@ a. Jenkins:<br>
 - Created a jenkins deployment and a service of the type nodeport 
 - Created a Persistent Volume and a Persistent Volume Claim that is mounted inside the Jenkins pod, allowing it to store data outside the pod, ensuring persistence across updates or reboots.
 - Made use of the Docker daemon on the host and mounted /var/run/docker.sock so that the jenkins server can interact with the Docker daemon using the Docker CLI
-- Created a service account for the Jenkins pod and assigned it a role, granting it permissions to create StatefulSets, Deployments, and Services on the Minikube cluster.
+- Created a service account for the Jenkins manager and jenkins agent pods and assigned it a role, granting them permissions to create StatefulSets, Deployments, and Services on the Minikube cluster in the tools and dev namespaces respectively.
 
-![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/029b904d-c788-4ca1-b411-6002c924656f)
+![image](https://github.com/aiishaa/ITI-Graduation-project/assets/57088227/b6714b18-4f0d-4371-bf7c-421e5655ab72)
+
 <br>
 
 - Now that the Jenkins pod is up and running, to log in to the Jenkins server, you need to sign in first using the username 'admin' and to retrieve the admin password:
@@ -38,7 +39,7 @@ b- Nexus:<br>
 <br>
 
 ## 4- dev namespace will run two pods: one for nodejs application and another for MySQL DB 
-- In the manifests folder, we created the resources needed for MySQL to run as a statefulset, the headless service, and the secret resources.
+- In the terraform folder, we created the terraform configuration files needed for MySQL to run as a statefulset, the headless service, and the secret resources.
 - Created the manifests needed for the nodejs application, deployment (that uses the image created from running the build pipeline) and a service of nodeport type.
 
 ## 5- Create a Jenkins pipeline job to do the following:
@@ -46,6 +47,28 @@ o Checkout code from https://github.com/mahmoud254/jenkins_nodejs_example.git<br
   - Build nodejs app usng dockerfile<br>
   - Create a Docker image<br>
   - Upload Docker image to nexus<br>
+
+#### Setting the Jenkins Kubernetes Pod Agent. This pod will be dynamically created and destroyed by Jenkins.<br>
+
+Step 1: Install Jenkins Kubernetes Plugin <br>
+Step 2: Create a Kubernetes Cloud Configuration<br>
+![cloud-1](https://github.com/aiishaa/ITI-Graduation-project/assets/57088227/1532aafb-29af-46ed-b9ad-d0cef62dbca1)
+
+step 3: Define the credentials needed. For Jenkins to communicate with the Kubernetes cluster, we need a service account token with permission to deploy pods in the tools namespace<br>
+
+![jenkins-secrets](https://github.com/aiishaa/ITI-Graduation-project/assets/57088227/b083f029-bcb2-4683-8c6f-554e1779a3f9)
+
+<br>
+
+![cloud-2](https://github.com/aiishaa/ITI-Graduation-project/assets/57088227/f2bfdaf2-d2f4-4924-b609-ece39e2a649e)
+
+<br>
+
+![image](https://github.com/aiishaa/ITI-Graduation-project/assets/57088227/afa6a21a-3d15-468a-8015-1f663c44d76f)
+
+<br>
+
+#### Create and run the build pipeline
 
 ![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/f5064817-18cc-4c54-8990-fd687483dd12)
 
