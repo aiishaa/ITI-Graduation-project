@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: nodejs
-        image: 10.101.100.160:8083/repository/docker-repo/node-app:latest
+        image: 10.109.67.211:8083/repository/docker-repo/node-app:latest
         env:
         - name: HOST
           value: mysql
