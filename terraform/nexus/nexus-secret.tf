@@ -1,6 +1,6 @@
 resource "kubernetes_secret" "nexus-cred" {
   metadata {
-    name      = "docker-registry-secret"
+    name      = "nexus-cred"
     namespace = kubernetes_namespace.dev.metadata[0].name
   }
 
