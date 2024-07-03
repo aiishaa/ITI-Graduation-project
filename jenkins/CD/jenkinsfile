@@ -4,23 +4,31 @@ pipeline {
     stages {
          stage('Install Kubectl') {
             steps {
-                sh 'curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"'
-                sh 'chmod +x kubectl'
-                sh 'mv kubectl /usr/local/bin'
-                sh 'kubectl version --client'
+                container('jenkins-agent') {
+                    sh 'curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"'
+                    sh 'chmod +x kubectl'
+                    sh 'mv kubectl /usr/local/bin'
+                    sh 'kubectl version --client'
+                }
             }
          }
              
-          stage('Deploy Image on minikube') {
-            steps {
+        stage('Checkout') {
+           steps {
                 git url:'https://github.com/aiishaa/ITI-grad-project.git', branch:'main' 
-                
-                sh """
-                cd manifests
-                kubectl apply -f mysql 
-                kubectl apply -f nodejs 
-                """
             }
+        }
+
+        stage('Deploy Image on minikube') {
+            steps {
+                container('jenkins-agent') {
+                    sh """
+                        cd manifests
+                        kubectl apply -f mysql 
+                        kubectl apply -f nodejs 
+                    """
+                }
+            }    
         }
     }
 }
