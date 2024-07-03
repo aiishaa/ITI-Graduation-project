@@ -19,13 +19,13 @@ spec:
     args:
     - 2h
     tty: true
-    resources:
-      requests:
-        cpu: 100m
-        memory: 256Mi
-      limits:
-        cpu: 1
-        memory: 1024Mi
+    # resources:
+    #   requests:
+    #     cpu: 100m
+    #     memory: 256Mi
+    #   limits:
+    #     cpu: 1
+    #     memory: 1024Mi
     volumeMounts:
     - name: docker-daemon
       mountPath: /var/run/docker.sock
