@@ -20,3 +20,11 @@ module "jenkins" {
   source = "./jenkins"
 }
 
+module "MySQL" {
+  source = "./Mysql"
+}
+
+module "nodejs" {
+  source = "./nodeapp"
+}
+
