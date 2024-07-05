@@ -11,7 +11,7 @@ resource "kubernetes_persistent_volume" "jenkins_pv" {
 
     persistent_volume_source {
       host_path {
-        path = "/mnt/data"
+        path = "/mnt/data/jenkins"
       }
     }
   }
