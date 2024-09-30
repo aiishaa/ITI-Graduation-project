@@ -1,5 +1,5 @@
 ## 1- Install local K8s instance using Minikub (with Ansible):
-You can run the ansible playbook on your local machine or on a remote ec2 instance(note: you'll need to use a solution like an nginx server to forward traffic to the Minikube private IP)
+You can run the ansible playbook on your local machine or on a remote ec2 instance.
 
 ## 2- K8s instance will have two Namespaces: tools and dev (installed using Terraform)<br>
 ![image](https://github.com/aiishaa/ITI-grad-project/assets/57088227/f6d608c2-7cd5-46e9-9fc9-8bff93518927)
